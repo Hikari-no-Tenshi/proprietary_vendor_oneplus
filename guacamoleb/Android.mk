@@ -1,4 +1,4 @@
-# Copyright (C) 2019 The LineageOS Project
+# Copyright (C) 2019-2020 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,5 +17,17 @@
 LOCAL_PATH := $(call my-dir)
 
 ifneq ($(filter guacamoleb,$(TARGET_DEVICE)),)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := QFingerprintService
+LOCAL_MODULE_OWNER := oneplus
+LOCAL_SRC_FILES := proprietary/vendor/app/QFingerprintService/QFingerprintService.apk
+LOCAL_CERTIFICATE := platform
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := APPS
+LOCAL_DEX_PREOPT := false
+LOCAL_MODULE_SUFFIX := .apk
+LOCAL_VENDOR_MODULE := true
+include $(BUILD_PREBUILT)
 
 endif
